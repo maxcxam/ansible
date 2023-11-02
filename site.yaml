@@ -1,0 +1,21 @@
+---
+- name: apply common configuration to all nodes
+  hosts: webservers
+  remote_user: user
+  gather_facts: true
+
+  vars:
+    ansible_python_interpreter: '/usr/bin/python3'
+    php_version: "8.2"
+    server_name: "_"
+    root_path: "html/public"
+    cur_date: "{{ansible_date_time.date}}"
+    cur_time: "{{ansible_date_time.time}}"
+
+  roles:
+    - common
+    - nginx
+    - db
+    - php
+    - nodejs
+    - redis

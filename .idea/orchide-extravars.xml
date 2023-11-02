@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="OrchideExtraVarsSettings">
+    <option name="extraVars">
+      <list>
+        <option value="server_name" />
+        <option value="server_path" />
+        <option value="php_version" />
+        <option value="root_path" />
+        <option value="cur_date" />
+        <option value="cur_time" />
+      </list>
+    </option>
+  </component>
+</project>

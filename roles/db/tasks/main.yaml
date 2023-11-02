@@ -1,0 +1,6 @@
+---
+- name: install mariadb
+  apt:
+    name: mariadb-server
+    state: present
+  become: yes

@@ -1,0 +1,13 @@
+---
+- name: install nginx
+  apt: name=nginx state=present
+  become: yes
+  notify: get time
+
+- name: Configure nginx
+  become: yes
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-available/default
+  tags: nginx
+  notify: restart nginx

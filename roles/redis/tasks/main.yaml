@@ -1,0 +1,6 @@
+---
+- name: redis install
+  become: yes
+  snap:
+    name: redis
+    state: present

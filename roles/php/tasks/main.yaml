@@ -1,0 +1,41 @@
+---
+- name: php repository prerequisites
+  become: yes
+  apt:
+    name:
+      - lsb-release
+      - gnupg2
+      - ca-certificates
+      - apt-transport-https
+      - software-properties-common
+    state: present
+
+- name: php repository add
+  become: yes
+  apt_repository:
+    validate_certs: yes
+    repo: ppa:ondrej/php
+    state: present
+    update_cache: yes
+
+- name: Php install
+  become: yes
+  apt:
+    name:
+      - "php{{php_version}}"
+      - "php{{php_version}}-fpm"
+      - "php{{php_version}}-common"
+      - "php{{php_version}}-bcmath"
+      - "php{{php_version}}-mbstring"
+      - "php{{php_version}}-yaml"
+      - "php{{php_version}}-zip"
+      - "php{{php_version}}-dom"
+      - "php{{php_version}}-intl"
+      - "php{{php_version}}-memcached"
+      - "php{{php_version}}-redis"
+      - "php{{php_version}}-mysql"
+      - "php{{php_version}}-ctype"
+      - "php{{php_version}}-curl"
+      - memcached
+      - composer
+    state: present

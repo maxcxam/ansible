@@ -1,0 +1,12 @@
+---
+- name: restart nginx
+  become: yes
+  service:
+    name: nginx
+    state: restarted
+  tags: nginx
+
+- name: get time
+  set_fact:
+    cur_date: "{{ tstamp.stdout[0:10]}}"
+    cur_time: "{{ tstamp.stdout[10:]}}"
