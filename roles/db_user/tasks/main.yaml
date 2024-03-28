@@ -1,0 +1,20 @@
+---
+- name: Create a new database with name 'tours'
+  community.mysql.mysql_db:
+    name: tours
+    state: present
+    login_unix_socket: /run/mysqld/mysqld.sock
+
+
+- name: Removes anonymous user account for localhost
+  community.mysql.mysql_user:
+    name: ''
+    host_all: true
+    state: absent
+
+- name: Create database user with name 'tours' and password 'tours' with all database privileges
+  community.mysql.mysql_user:
+    name: tours
+    password: tours
+    priv: '*.*:ALL'
+    state: present

@@ -1,4 +1,11 @@
 ---
+- name: apt upgrade
+  apt:
+    upgrade: yes
+    update_cache: yes
+    cache_valid_time: 86400 #One day
+  become: yes
+
 - name: install pip3
   apt:
     name: python3-pip
